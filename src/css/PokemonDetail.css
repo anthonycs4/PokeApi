@@ -1,0 +1,176 @@
+/* PokemonDetail.css */
+
+.detail-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #111827, #1f2937); /* Fondo oscuro */
+  color: white;
+  padding: 2rem;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.detail-card {
+  background-color: #1f2937;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  max-width: 800px;
+  margin: 0 auto;
+  animation: slideUp 0.6s ease;
+}
+
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.detail-img-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+.pokemon-rotate {
+  animation: spin 2s linear infinite;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  width: 100%;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.detail-img {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  transform: rotateY(180deg);
+
+}
+
+.detail-shadow {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  width: 100%;
+  opacity: 0.25;
+  transform: scaleY(0.4) skewX(15deg);
+  filter: blur(4px);
+  z-index: 1;
+}
+
+.detail-info h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.detail-info p {
+  margin: 0.25rem 0;
+}
+
+.detail-info .types {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.detail-info .types span {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.moves {
+  margin-top: 2rem;
+}
+
+.moves h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.moves .move-badge {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  margin: 0.25rem;
+  display: inline-block;
+}
+
+.back-button {
+  background-color: #374151;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background-color: #4b5563;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* Fondo animado común */
+.animated-bg {
+  animation: gradientMove 8s ease infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Fondos animados por tipo */
+.type-fire     { background: linear-gradient(-45deg, #f12711, #f5af19, #f12711); }
+.type-water    { background: linear-gradient(-45deg, #2193b0, #6dd5ed, #2193b0); }
+.type-grass    { background: linear-gradient(-45deg, #56ab2f, #a8e063, #56ab2f); }
+.type-electric { background: linear-gradient(-45deg, #fceabb, #f8b500, #fceabb); }
+.type-psychic  { background: linear-gradient(-45deg, #e94057, #f27121, #e94057); }
+.type-ice      { background: linear-gradient(-45deg, #83a4d4, #b6fbff, #83a4d4); }
+.type-dragon   { background: linear-gradient(-45deg, #20002c, #cbb4d4, #20002c); }
+.type-dark     { background: linear-gradient(-45deg, #434343, #000000, #434343); }
+.type-fairy    { background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ff9a9e); }
+.type-normal   { background: linear-gradient(-45deg, #bdc3c7, #2c3e50, #bdc3c7); }
+.type-ghost    { background: linear-gradient(-45deg, #5a5c82, #2e2f4f, #5a5c82); }
+.type-rock     { background: linear-gradient(-45deg, #d3cbb8, #a28b6d, #d3cbb8); }
+.type-ground   { background: linear-gradient(-45deg, #c2b280, #e0c097, #c2b280); }
+.type-poison   { background: linear-gradient(-45deg, #9f5fd6, #4a148c, #9f5fd6); }
+.type-bug      { background: linear-gradient(-45deg, #a8b500, #d4fc79, #a8b500); }
+.type-fighting { background: linear-gradient(-45deg, #c31432, #240b36, #c31432); }
+.type-flying   { background: linear-gradient(-45deg, #89f7fe, #66a6ff, #89f7fe); }
+.type-steel    { background: linear-gradient(-45deg, #757f9a, #d7dde8, #757f9a); }

@@ -1,0 +1,80 @@
+/* --- CONTENEDOR --- */
+.card-container {
+  width: 170px;
+  height: 240px;
+  perspective: 1000px;
+  margin: auto;
+  border-radius: 1rem;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- INTERIOR (permite el giro) --- */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  border-radius: inherit;
+    transform-origin: center center;
+
+}
+
+/* Gira en hover */
+.card-container:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* --- CARAS --- */
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;                /* asegúrate que ambas tengan igual */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: inherit;
+  backface-visibility: hidden;
+  box-sizing: border-box;       /* esto ayuda también */
+}
+
+/* FRONTAL usa degradado variable por tipo */
+.card-front {
+  color: white;
+}
+
+/* TRASERA: fondo oscuro semi‑transparente */
+.card-back {
+  background: rgba(0, 0, 0, 0.75);
+  transform: rotateY(180deg);
+}
+
+/* --- BADGE --- */
+.badge {
+  padding: 0.15rem 0.4rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+/* --- DEGRADADOS POR TIPO (agrega más si quieres) --- */
+.type-fire   .card-front { background: linear-gradient(135deg,#f12711,#f5af19); }
+.type-water  .card-front { background: linear-gradient(135deg,#2193b0,#6dd5ed); }
+.type-grass  .card-front { background: linear-gradient(135deg,#56ab2f,#a8e063); }
+.type-electric .card-front{background:linear-gradient(135deg,#fceabb,#f8b500);}
+.type-ice    .card-front { background: linear-gradient(135deg,#83a4d4,#b6fbff); }
+.type-psychic .card-front{ background: linear-gradient(135deg,#e94057,#f27121); }
+.type-fighting .card-front{background:linear-gradient(135deg,#fe8c00,#f83600);}
+.type-poison .card-front { background: linear-gradient(135deg,#41295a,#2F0743); }
+.type-ground .card-front { background: linear-gradient(135deg,#BA8B02,#181818); }
+.type-rock   .card-front { background: linear-gradient(135deg,#3e5151,#decba4); }
+.type-bug    .card-front { background: linear-gradient(135deg,#A8FF78,#78FFD6); }
+.type-dragon .card-front { background: linear-gradient(135deg,#20002c,#cbb4d4); }
+.type-dark   .card-front { background: linear-gradient(135deg,#434343,#000000); }
+.type-steel  .card-front { background: linear-gradient(135deg,#bdc3c7,#2c3e50); }
+.type-fairy  .card-front { background: linear-gradient(135deg,#ff9a9e,#fad0c4); }
+.type-normal .card-front { background: linear-gradient(135deg,#bdc3c7,#2c3e50); }
