@@ -43,3 +43,8 @@
     transform: translateY(0);
   }
 }
+@media (max-width: 768px) {
+  .searchbar-input {
+    width: 100%;
+}
+}

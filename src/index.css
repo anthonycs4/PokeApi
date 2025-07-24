@@ -53,6 +53,12 @@ body{
   color: #333;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+@media (max-width: 768px) {
+  .pagination-number {
+    width: 20px;
+    height: 20px;
+  }
+}
 
 .pagination-number:hover {
   background-color: #dbeafe;
@@ -236,5 +242,5 @@ body{
 ;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 45px;
 }

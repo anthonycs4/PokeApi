@@ -1,15 +1,53 @@
-/* Sidebar.css */
+/* Hide hamburger on large screens */
+.hamburger {
+  display: none;
+}
 
+/* Sidebar base */
 .sidebar {
   background: linear-gradient(to bottom, #1e1e1e, #2b2b2b);
   color: #f1f1f1;
   padding: 20px;
-  width: 100%;
   height: 100vh;
   max-width: 260px;
+  width: 100%;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
   overflow-y: auto;
+  transition: transform 0.3s ease;
 }
+
+/* Responsive hidden state */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 1000;
+    background: #1e1e1e;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: block;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    font-size: 1.2rem;
+    margin: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+  }
+}
+
 
 .sidebar h2 {
   font-size: 1.5rem;
@@ -44,6 +82,7 @@
   transition: all 0.3s ease;
   position: relative;
 }
+
 .sidebar .type-option:hover {
   background-color: #444;
 }
@@ -53,12 +92,13 @@
 }
 
 .sidebar input[type="radio"]:checked + label {
-  background-color: #4b5563; /* gris más claro */
-  border: 2px solid #3b82f6; /* azul tailwind */
+  background-color: #4b5563;
+  border: 2px solid #3b82f6;
   box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
   transform: scale(1.03);
   transition: all 0.25s ease-in-out;
 }
+
 .sidebar .type-icon {
   width: 20px;
   height: 20px;

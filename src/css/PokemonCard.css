@@ -9,7 +9,12 @@
   justify-content: center;
   align-items: center;
 }
-
+@media (max-width: 768px) {
+ .card-container {
+  width: 145px;
+  height: 190px;
+}
+}
 /* --- INTERIOR (permite el giro) --- */
 .card-inner {
   position: relative;

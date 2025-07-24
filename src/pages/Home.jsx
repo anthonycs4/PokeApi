@@ -11,6 +11,7 @@ import SearchBar from "../components/SearchBar";
 import Sidebar from "../components/Sidebar";
 
 function Home() {
+  
   const [pokemonList, setPokemonList] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [itemsPerPage, setItemsPerPage] = useState(20);

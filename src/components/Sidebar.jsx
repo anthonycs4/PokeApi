@@ -19,31 +19,16 @@ import ice from "../assets/icons/ice.svg";
 import steel from "../assets/icons/steel.svg";
 import flying from "../assets/icons/flying.svg";
 
-// Mapeo de tipo => icono
 const typeIcons = {
-  bug,
-  fire,
-  water,
-  grass,
-  electric,
-  psychic,
-  normal,
-  fighting,
-  dark,
-  fairy,
-  ghost,
-  rock,
-  ground,
-  poison,
-  dragon,
-  ice,
-  steel,
-  flying,
+  bug, fire, water, grass, electric, psychic, normal,
+  fighting, dark, fairy, ghost, rock, ground, poison,
+  dragon, ice, steel, flying,
 };
 
 function Sidebar({ onFilter }) {
   const [types, setTypes] = useState([]);
   const [selectedType, setSelectedType] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchFilters = async () => {
@@ -51,7 +36,6 @@ function Sidebar({ onFilter }) {
       const data = await res.json();
       setTypes(data.results);
     };
-
     fetchFilters();
   }, []);
 
@@ -60,51 +44,57 @@ function Sidebar({ onFilter }) {
   }, [selectedType]);
 
   return (
-    <aside className="sidebar">
-      <h2>Filtrar</h2>
-      <label>Tipo:</label>
-      <div className="types-grid">
-        <div className="type-option">
-          <input
-            type="radio"
-            name="type"
-            id="all"
-            value=""
-            checked={selectedType === ""}
-            onChange={() => setSelectedType("")}
-          />
-          <label htmlFor="all">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/149/149852.png"
-              alt="all"
-              className="type-icon"
-            />
-            Todos
-          </label>
-        </div>
+    <>
+      <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        ☰ Filtrar
+      </button>
 
-        {types.map((t) => (
-          <div key={t.name} className="type-option">
+      <aside className={`sidebar ${isOpen ? "open" : ""}`}>
+        <h2>Filtrar</h2>
+        <label>Tipo:</label>
+        <div className="types-grid">
+          <div className="type-option">
             <input
               type="radio"
               name="type"
-              id={t.name}
-              value={t.name}
-              checked={selectedType === t.name}
-              onChange={() => setSelectedType(t.name)}
+              id="all"
+              value=""
+              checked={selectedType === ""}
+              onChange={() => setSelectedType("")}
             />
-            <label htmlFor={t.name}>
+            <label htmlFor="all">
               <img
-                src={typeIcons[t.name] || "https://cdn-icons-png.flaticon.com/512/616/616408.png"}
-                alt={t.name}
+                src="https://cdn-icons-png.flaticon.com/512/149/149852.png"
+                alt="all"
                 className="type-icon"
               />
-              {t.name}
+              Todos
             </label>
           </div>
-        ))}
-      </div>
-    </aside>
+
+          {types.map((t) => (
+            <div key={t.name} className="type-option">
+              <input
+                type="radio"
+                name="type"
+                id={t.name}
+                value={t.name}
+                checked={selectedType === t.name}
+                onChange={() => setSelectedType(t.name)}
+              />
+              <label htmlFor={t.name}>
+                <img
+                  src={typeIcons[t.name] || "https://cdn-icons-png.flaticon.com/512/616/616408.png"}
+                  alt={t.name}
+                  className="type-icon"
+                />
+                {t.name}
+              </label>
+            </div>
+          ))}
+        </div>
+      </aside>
+    </>
   );
 }
 
